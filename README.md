@@ -10,13 +10,17 @@ Réaliser avec :
 
 ### Images :
 
-**Page Accueil:**
+ **Page Accueil:**
 
 ![screen2](https://user-images.githubusercontent.com/91763448/153309829-b58e751d-0dfe-4717-b61d-e729ce2512aa.png)
+
+
 
 **Page des détails:**
 
 ![screen3](https://user-images.githubusercontent.com/91763448/153309908-b8cc0387-10cf-4eb1-864a-e2b607acd741.png)
+
+
 
 **Page Création d'une personne:**
 
