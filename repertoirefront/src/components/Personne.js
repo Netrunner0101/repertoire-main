@@ -1,9 +1,11 @@
 import React, {useState,useEffect} from 'react';
+import{ init } from '@emailjs/browser';
 import { Button, Container, Link, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import { useNavigate, useParams } from 'react-router-dom';
 import Service from '../Service';
 import NotFound from '../NotFound';
+
 
 export default function Personne() {
 
@@ -22,9 +24,12 @@ export default function Personne() {
   // Pas besoin
   // const personneUpdated = {nomUpdated, prenomUpdated, idp};
 
+  // Email sender
+  const initMail = init("user_a1s0cCU5k8J8JyzBph2aM");
+
   useEffect(() => {
     getPersonne(idp);
-  }, []);
+  }, [idp]);
   
   const getPersonne = () => {
     Service.getById(idp)
@@ -32,7 +37,6 @@ export default function Personne() {
       setNomInit(response.data.nom);
       setPrenomInit(response.data.prenom);
       setEmailInit(response.data.email);
-      console.log("Le nom recupérer est : " , nomInit , "Le prenom est" ,prenomInit,"L'email est : ",emailInit);
     })
     .catch(error => {
       console.log("There is a error when personne details (Service.getById())",error);
@@ -56,6 +60,9 @@ export default function Personne() {
       )
     }
   }
+
+  // Fonctionnalité Mail.
+
 
   return (
     <React.Fragment>
@@ -90,6 +97,9 @@ export default function Personne() {
             </div>  
       </Box>  
       <hr/>
+      <Box>
+        <p> {nomInit} , {prenomInit}, {emailInit}</p>
+      </Box>
       <Link href={'/'}> Retour à l'acceuil </Link>
     </Container>  
   </React.Fragment>
